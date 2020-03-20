@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 // Static server
 gulp.task('browser-sync', function() {
@@ -8,4 +9,5 @@ gulp.task('browser-sync', function() {
         }
     });
     gulp.watch("./*.html").on('change', browserSync.reload);
+    
 });
