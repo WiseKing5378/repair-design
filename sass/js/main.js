@@ -1,10 +1,20 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
-    const modal = document.querySelector('.modal');
-    const modalBtn = document.querySelectorAll('[data-toggle=modal]');
+$(document).ready(function () {
+    var modal = $('.modal'),
+        modalBtn =$('[data-toggle=modal]'),
+        closelBtn =$('.modal__close');
 
-    modalBtn.forEach(element => {
-        element.addEventListener('click',() =>{
-            modal.classList.toggle('modal--visible');
-        });
+    modalBtn.on('click', function () {
+        modal.toggleClass('modal--visible');
     });
-  });
+    closelBtn.on('click', function(){
+        modal.toggleClass('modal--visible');
+    });
+
+    var mySwiper = new Swiper ('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+          },
+      })
+}); 
