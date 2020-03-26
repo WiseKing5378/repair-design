@@ -42,4 +42,77 @@ $(document).ready(function () {
     bullets.css('left',prev.width()+10)
 
     new WOW().init()
+
+    // Валидация формы
+
+    $('.modal__form').validate({
+        errorClass: "invalid",
+        rules: {
+            // simple rule, converted to {required:true}
+            userName: {
+                required: true,
+                minlength: 2,
+                maxlength: 15
+            },
+            userPhone: "required",
+            userEmail: {
+                required: true,
+                email: true
+            }
+          },
+        messages: {
+            userName: {
+                required: "Заполните поле",
+                minlength: "Имя не короче двух букв",
+                maxlength: "Имя не больше 15 букв"
+            },
+            userPhone: "Заполните поле",
+            userEmail: {
+              required: "Заполните поле",
+              email: "Введите в формате name@domain.com",
+            }
+          }
+    })
+    $('.control__form').validate({
+        errorClass: "invalid",
+        rules: {
+            // simple rule, converted to {required:true}
+            userName: {
+                required: true,
+                minlength: 2,
+                maxlength: 15
+            },
+            userPhone: "required",
+          },
+        messages: {
+            userName: {
+                required: "Заполните поле",
+                minlength: "Имя не короче двух букв",
+                maxlength: "Имя не больше 15 букв"
+            },
+            userPhone: "Заполните поле",
+          }
+    })
+    $('.footer__form').validate({
+        errorClass: "invalid",
+        rules: {
+            // simple rule, converted to {required:true}
+            userName: {
+                required: true,
+                minlength: 2,
+                maxlength: 15
+            },
+            userPhone: "required",
+          },
+        messages: {
+            userName: {
+                required: "Заполните поле",
+                minlength: "Имя не короче двух букв",
+                maxlength: "Имя не больше 15 букв"
+            },
+            userPhone: "Заполните поле",
+          }
+    })
+    // Маска для телефона
+    $('[type=tel]').mask('+7(000) 00-00-000', {placeholder: "+7 (___) __-__-___"});
 });
