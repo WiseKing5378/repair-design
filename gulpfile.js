@@ -11,3 +11,12 @@ gulp.task('browser-sync', function() {
     gulp.watch("./*.html").on('change', browserSync.reload);
     
 });
+
+function buildCSS(done){
+    src('css/**/**.css')
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(dest('dist/css/'));
+    done();
+}
+
+exports.buildCSS = buildCSS;
