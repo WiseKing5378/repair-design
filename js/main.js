@@ -111,8 +111,23 @@ $(document).ready(function () {
                 maxlength: "Имя не больше 15 букв"
             },
             userPhone: "Заполните поле",
-          }
+          },
+        submitHandler: function(form){
+            $.ajax({
+                type: "POST",
+                url: "send.php",
+                data: $(form).serialize(),
+                success: function (response) {
+                    console.log('все ок. Ответ сервера' + response);
+                    alert('Форма отправлена, мы с вами свяжемся');
+                    $(form)[0].reset();
+                    modal.removeClass('modal--visible');
+                }
+            });
+        }
     })
+
     // Маска для телефона
     $('[type=tel]').mask('+7(000) 00-00-000', {placeholder: "+7 (___) __-__-___"});
+
 });
